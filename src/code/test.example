@@ -1,0 +1,10 @@
+import React, { Fragment } from 'react'
+
+const Example = () => (
+  <Fragment>
+    <h1>Hello World!</h1>
+    <p>This is an example component. Let's see if it works yeah?</p>
+  </Fragment>
+)
+
+export default Example
