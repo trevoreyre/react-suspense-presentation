@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "raw-loader": "^0.5.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "spectacle-code-slide": "^0.5.2",
@@ -11,12 +10,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start-presentation": "cross-env REACT_APP_RUN=presentation react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "cross-env": "^5.2.0"
   }
 }
