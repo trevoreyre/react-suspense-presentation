@@ -11,8 +11,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-presentation": "cross-env REACT_APP_RUN=presentation react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0"
   }
 }
