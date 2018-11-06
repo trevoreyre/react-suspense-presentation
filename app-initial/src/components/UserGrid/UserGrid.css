@@ -1,0 +1,9 @@
+.user-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-column-gap: 40px;
+  margin: 96px auto;
+  padding: 0 24px;
+  width: 100%;
+  max-width: 1200px;
+}
