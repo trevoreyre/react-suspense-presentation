@@ -4,44 +4,63 @@ const api = axios.create({
   baseURL: 'https://jsonplaceholder.typicode.com'
 })
 
-const userImages = [
-  'https://source.unsplash.com/E9uJ65vwGmE/',
-  'https://source.unsplash.com/Nm70URdtf3c/',
-  'https://source.unsplash.com/vMV6r4VRhJ8/',
-  'https://source.unsplash.com/wqIvOmQdWp0/',
-  'https://source.unsplash.com/U22pJ6BclUQ/',
-  'https://source.unsplash.com/K-chxjiTu7c/',
-  'https://source.unsplash.com/iFgRcqHznqg/',
-  'https://source.unsplash.com/d2MSDujJl2g/',
-  'https://source.unsplash.com/tNCH0sKSZbA/',
-  'https://source.unsplash.com/TMgQMXoglsM/'
-]
+const userImages = {
+  '1': 'https://source.unsplash.com/E9uJ65vwGmE/',
+  '2': 'https://source.unsplash.com/Nm70URdtf3c/',
+  '3': 'https://source.unsplash.com/vMV6r4VRhJ8/',
+  '4': 'https://source.unsplash.com/wqIvOmQdWp0/',
+  '5': 'https://source.unsplash.com/U22pJ6BclUQ/',
+  '6': 'https://source.unsplash.com/K-chxjiTu7c/',
+  '7': 'https://source.unsplash.com/iFgRcqHznqg/',
+  '8': 'https://source.unsplash.com/d2MSDujJl2g/',
+  '9': 'https://source.unsplash.com/tNCH0sKSZbA/',
+  '10': 'https://source.unsplash.com/TMgQMXoglsM/'
+}
 
 export const getUsers = async () => {
   const { data: users } = await api.get('users')
   return users.map((user, index) => ({
     ...user,
-    avatar: userImages[index] + '15x15',
-    avatarHd: userImages[index] + '400x400'
+    avatar: userImages[user.id] + '15x15',
+    avatarHd: userImages[user.id] + '400x400'
     // avatar: 'https://via.placeholder.com/15',
     // avatarHd: 'https://via.placeholder.com/400'
   }))
 }
 
+export const getUser = async userId => {
+  const { data: user } = await api.get(`users/${userId}`)
+  return {
+    ...user,
+    avatar: userImages[user.id] + '15x15',
+    avatarHd: userImages[user.id] + '400x400'
+  }
+}
+
 export const getUserPosts = async userId => {
   const { data: posts } = await api.get(`users/${userId}/posts`)
-  console.log('posts', posts);
   return posts
 }
 
 export const getUserAlbums = async userId => {
   const { data: albums } = await api.get(`users/${userId}/albums`)
-  console.log('albums', albums);
   return albums
 }
 
 export const getUserTasks = async userId => {
   const { data: tasks } = await api.get(`users/${userId}/todos`)
-  console.log('tasks', tasks);
   return tasks
+}
+
+export const getPosts = async () => {
+  const { data: posts } = await api.get('posts')
+  return posts.map((post, index) => ({
+    ...post,
+    body: post.body.charAt(0).toUpperCase() + post.body.slice(1) + '.'
+  }))
+}
+
+export const getComments = async postId => {
+  const { data: comments } = await api.get(`posts/${postId}/comments`)
+  return comments
 }

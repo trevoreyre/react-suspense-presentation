@@ -12,26 +12,26 @@
 }
 
 .nav-title {
-  margin: 24px 0 0 24px;
-  display: block;
-  font-size: 24px;
-  font-weight: 500;
+  margin: 24px 0 4px 16px;
+  font-size: 32px;
+  font-weight: 400;
   line-height: 1.25;
   color: #fff;
 }
 
 .nav-subtitle {
-  margin: 0 0 24px 24px;
+  margin: 0 0 24px 16px;
   font-size: 16px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.7);
 }
 
 .nav-link {
-  display: block;
+  display: flex;
+  align-items: center;
   border-radius: 8px;
   margin: 0;
-  padding: 24px;
+  padding: 24px 16px;
   width: 100%;
   line-height: 1;
   font-size: 24px;
@@ -39,6 +39,10 @@
   text-decoration: none;
 }
 
+.nav-link > * {
+  margin-right: 24px;
+}
+
 .nav-link:hover {
-  background: hsl(255, 81%, 46%);
+  background: hsl(255, 81%, 48%);
 }

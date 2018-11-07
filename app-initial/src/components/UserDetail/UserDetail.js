@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import * as api from '../../api'
 import Spinner from '../Spinner'
 import './UserDetail.css'
 
