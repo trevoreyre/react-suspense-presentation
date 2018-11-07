@@ -23,15 +23,25 @@ export const getUsers = async () => {
     ...user,
     avatar: userImages[index] + '15x15',
     avatarHd: userImages[index] + '400x400'
+    // avatar: 'https://via.placeholder.com/15',
+    // avatarHd: 'https://via.placeholder.com/400'
   }))
 }
 
 export const getUserPosts = async userId => {
   const { data: posts } = await api.get(`users/${userId}/posts`)
+  console.log('posts', posts);
   return posts
 }
 
 export const getUserAlbums = async userId => {
   const { data: albums } = await api.get(`users/${userId}/albums`)
+  console.log('albums', albums);
   return albums
+}
+
+export const getUserTasks = async userId => {
+  const { data: tasks } = await api.get(`users/${userId}/todos`)
+  console.log('tasks', tasks);
+  return tasks
 }

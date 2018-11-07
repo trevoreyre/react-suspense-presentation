@@ -1,33 +1,33 @@
 import React, { Component } from 'react'
 import * as api from '../../api'
 import Spinner from '../Spinner'
-import './UserPosts.css'
+import './UserTasks.css'
 
-class UserPosts extends Component {
+class UserTasks extends Component {
   state = {
     isLoading: true,
-    posts: []
+    tasks: []
   }
 
   async componentDidMount() {
-    const posts = await api.getUserPosts(this.props.id)
+    const tasks = await api.getUserTasks(this.props.id)
     this.setState({
       isLoading: false,
-      posts
+      tasks
     })
   }
 
   render() {
-    const { isLoading, posts } = this.state
+    const { isLoading, tasks } = this.state
 
     return (
-      <div className="user-posts">
+      <div className="user-tasks">
         {isLoading ? (
           <Spinner centered={false} />
         ) : (
           <>
-            <h3 className="posts-label">Posts</h3>
-            <p className="posts-value">{posts.length}</p>
+            <h3 className="tasks-label">Tasks</h3>
+            <p className="tasks-value">{tasks.length}</p>
           </>
         )}
       </div>
@@ -35,4 +35,4 @@ class UserPosts extends Component {
   }
 }
 
-export default UserPosts
+export default UserTasks

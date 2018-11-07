@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { getUsers } from '../../api'
 import Spinner from '../Spinner'
-import User from '../User'
+// import User from '../User'
 import './UserGrid.css'
+
+const User = React.lazy(() => import('../User'))
 
 class UserGrid extends Component {
   state = {
@@ -28,16 +30,19 @@ class UserGrid extends Component {
 
   render() {
     const { isLoading, users, error } = this.state
-    return isLoading ? (
-      <Spinner />
-    ) : users ? (
+
+    return (
       <div className="user-grid">
-        {users.map(user => (
-          <User key={user.id} user={user} />
-        ))}
+        <React.Suspense fallback={<Spinner />}>
+          {isLoading ? (
+            <Spinner />
+          ) : error ? (
+            <p>{error}</p>
+          ) : (
+            users.map(user => <User key={user.id} user={user} />)
+          )}
+        </React.Suspense>
       </div>
-    ) : (
-      <p>{error}</p>
     )
   }
 }
