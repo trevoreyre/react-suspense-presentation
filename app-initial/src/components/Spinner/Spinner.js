@@ -1,10 +1,10 @@
 import React from 'react'
 import './Spinner.css'
 
-const Spinner = ({ width = '40px', height = '40px', centered = true } = {}) => (
+const Spinner = ({ size = '40px', centered = false } = {}) => (
   <div
-    className="spinner"
-    style={{ width, height, margin: centered ? '0 auto' : 0 }}
+    className={`spinner${centered ? ' centered' : ''}`}
+    style={{ width: size, height: size }}
   />
 )
 

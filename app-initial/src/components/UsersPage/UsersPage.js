@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { getUsers } from 'api'
 import PageTitle from 'components/PageTitle'
 import Spinner from 'components/Spinner'
+import Warning from 'components/Warning'
 import Grid from 'components/Grid'
 import User from 'components/User'
 
@@ -22,7 +23,7 @@ class UsersPage extends Component {
     } catch (error) {
       this.setState({
         isLoading: false,
-        error
+        error: 'Unable to load users'
       })
     }
   }
@@ -34,9 +35,9 @@ class UsersPage extends Component {
       <>
         <PageTitle>Users</PageTitle>
         {isLoading ? (
-          <Spinner />
+          <Spinner centered />
         ) : error ? (
-          <p>{error}</p>
+          <Warning>{error}</Warning>
         ) : (
           <Grid>
             {users.map(user => (

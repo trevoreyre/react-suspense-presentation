@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { getPosts } from 'api'
 import PageTitle from 'components/PageTitle'
 import Spinner from 'components/Spinner'
-import Grid from 'components/Grid'
+import Warning from 'components/Warning'
 import Post from 'components/Post'
 
 class PostsPage extends Component {
@@ -15,7 +15,6 @@ class PostsPage extends Component {
   async componentDidMount() {
     try {
       const posts = await getPosts()
-      console.log('posts', posts)
       this.setState({
         isLoading: false,
         posts
@@ -23,7 +22,7 @@ class PostsPage extends Component {
     } catch (error) {
       this.setState({
         isLoading: false,
-        error
+        error: 'Unable to load posts'
       })
     }
   }
@@ -35,9 +34,9 @@ class PostsPage extends Component {
       <>
         <PageTitle>Posts</PageTitle>
         {isLoading ? (
-          <Spinner />
+          <Spinner centered />
         ) : error ? (
-          <p>{error}</p>
+          <Warning>{error}</Warning>
         ) : (
           posts.map(post => <Post key={post.id} post={post} />)
         )}

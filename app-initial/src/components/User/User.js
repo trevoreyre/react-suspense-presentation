@@ -9,8 +9,8 @@ const UserBackground = () => {
     <div
       className="user-background"
       style={{
-        background: `linear-gradient(to bottom right, hsl(${random}, 100%, 70%), hsl(${random +
-          40}, 100%, 70%))`
+        background: `linear-gradient(to bottom right, hsl(${random}, 100%, 60%), hsl(${random +
+          40}, 100%, 60%))`
       }}
     />
   )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Spinner from '../Spinner'
+import Spinner from 'components/Spinner'
 import './UserDetail.css'
 
 class UserDetail extends Component {
@@ -23,7 +23,7 @@ class UserDetail extends Component {
     return (
       <div className="user-detail">
         {isLoading ? (
-          <Spinner centered={false} />
+          <Spinner size="44px" />
         ) : (
           <>
             <h3 className="user-detail-label">{label}</h3>

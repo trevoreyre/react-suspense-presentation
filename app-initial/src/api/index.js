@@ -22,9 +22,7 @@ export const getUsers = async () => {
   return users.map((user, index) => ({
     ...user,
     avatar: userImages[user.id] + '15x15',
-    avatarHd: userImages[user.id] + '400x400'
-    // avatar: 'https://via.placeholder.com/15',
-    // avatarHd: 'https://via.placeholder.com/400'
+    avatarHd: userImages[user.id] + '150x150'
   }))
 }
 
@@ -33,7 +31,7 @@ export const getUser = async userId => {
   return {
     ...user,
     avatar: userImages[user.id] + '15x15',
-    avatarHd: userImages[user.id] + '400x400'
+    avatarHd: userImages[user.id] + '150x150'
   }
 }
 
