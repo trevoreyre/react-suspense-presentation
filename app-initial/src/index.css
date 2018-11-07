@@ -1,11 +1,10 @@
 html {
   box-sizing: border-box;
-  position: relative;
 }
 
 *, *::before, *::after {
   box-sizing: inherit;
-  position: inherit;
+  position: relative;
 }
 
 body {

@@ -1,8 +1,20 @@
 import React, { Component } from 'react'
-import UserPosts from '../UserPosts'
-import UserAlbums from '../UserAlbums'
-import UserTasks from '../UserTasks'
+import * as api from 'api'
+import UserDetail from 'components/UserDetail'
 import './User.css'
+
+const UserBackground = () => {
+  const random = Math.random() * 360
+  return (
+    <div
+      className="user-background"
+      style={{
+        background: `linear-gradient(to bottom right, hsl(${random}, 100%, 70%), hsl(${random +
+          40}, 100%, 70%))`
+      }}
+    />
+  )
+}
 
 class User extends Component {
   render() {
@@ -10,10 +22,7 @@ class User extends Component {
 
     return (
       <div className="user" {...props}>
-        <div
-          className="user-background"
-          style={{ background: `hsl(${Math.random() * 360}, 100%, 70%)` }}
-        />
+        <UserBackground />
         <div className="user-header">
           <div className="user-avatar">
             <img src={user.avatarHd} alt="User avatar" className="avatar" />
@@ -24,9 +33,9 @@ class User extends Component {
           </div>
         </div>
         <div className="user-footer">
-          <UserPosts id={user.id} />
-          <UserAlbums id={user.id} />
-          <UserTasks id={user.id} />
+          <UserDetail fetchFn={api.getUserPosts} label="Posts" id={user.id} />
+          <UserDetail fetchFn={api.getUserAlbums} label="Albums" id={user.id} />
+          <UserDetail fetchFn={api.getUserTasks} label="Tasks" id={user.id} />
         </div>
       </div>
     )
