@@ -5,8 +5,6 @@ import Warning from 'components/Warning'
 import Grid from 'components/Grid'
 import User from 'components/User'
 
-import ErrorBoundary from 'components/ErrorBoundary'
-
 class UsersPage extends Component {
   state = {
     isLoading: true,
