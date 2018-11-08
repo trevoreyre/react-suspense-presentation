@@ -1,12 +1,11 @@
-import React, { Component, Suspense } from 'react'
+import React, { Component } from 'react'
 import { Router } from '@reach/router'
 import { FiUser, FiEdit } from 'react-icons/fi'
-import NavDrawer, { NavTitle, NavSubtitle, NavLink } from 'components/NavDrawer'
+import { NavDrawer, NavTitle, NavSubtitle, NavLink } from 'components/Nav'
 import Main from 'components/Main'
-import Spinner from 'components/Spinner'
-
-const UsersPage = React.lazy(() => import('components/UsersPage'))
-const PostsPage = React.lazy(() => import('components/PostsPage'))
+import Preload from 'components/Preload'
+import UsersPage from 'components/UsersPage'
+import PostsPage from 'components/PostsPage'
 
 class App extends Component {
   render() {
@@ -25,13 +24,12 @@ class App extends Component {
           </NavLink>
         </NavDrawer>
         <Main>
-          <Suspense fallback={<Spinner centered />} maxDuration={500}>
-            <Router>
-              <UsersPage path="/users" />
-              <PostsPage path="/posts" />
-            </Router>
-          </Suspense>
+          <Router>
+            <UsersPage path="/users" />
+            <PostsPage path="/posts" />
+          </Router>
         </Main>
+        <Preload />
       </div>
     )
   }

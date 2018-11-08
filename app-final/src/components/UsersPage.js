@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { getUsers } from 'api'
-import PageTitle from 'components/PageTitle'
 import Spinner from 'components/Spinner'
 import Warning from 'components/Warning'
 import Grid from 'components/Grid'
@@ -10,7 +9,7 @@ class UsersPage extends Component {
   state = {
     isLoading: true,
     users: [],
-    error: ''
+    error: '',
   }
 
   async componentDidMount() {
@@ -18,12 +17,12 @@ class UsersPage extends Component {
       const users = await getUsers()
       this.setState({
         isLoading: false,
-        users
+        users,
       })
     } catch (error) {
       this.setState({
         isLoading: false,
-        error: 'Unable to load users'
+        error: 'Unable to load users',
       })
     }
   }
@@ -31,21 +30,16 @@ class UsersPage extends Component {
   render() {
     const { isLoading, users, error } = this.state
 
-    return (
-      <>
-        <PageTitle>Users</PageTitle>
-        {isLoading ? (
-          <Spinner centered />
-        ) : error ? (
-          <Warning>{error}</Warning>
-        ) : (
-          <Grid>
-            {users.map(user => (
-              <User key={user.id} user={user} />
-            ))}
-          </Grid>
-        )}
-      </>
+    return isLoading ? (
+      <Spinner centered />
+    ) : error ? (
+      <Warning>{error}</Warning>
+    ) : (
+      <Grid>
+        {users.map(user => (
+          <User key={user.id} user={user} />
+        ))}
+      </Grid>
     )
   }
 }
