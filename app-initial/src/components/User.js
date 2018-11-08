@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import UserPosts from 'components/UserPosts'
 import UserAlbums from 'components/UserAlbums'
-import './User.css'
 
 const UserBackground = () => {
   const random = Math.random() * 360
@@ -28,8 +27,8 @@ class User extends Component {
             <img src={user.avatarHd} alt="User avatar" className="avatar" />
           </div>
           <div className="user-info">
-            <h2 className="name">{user.name}</h2>
-            <h3 className="username">@{user.username}</h3>
+            <h2 className="user-name">{user.name}</h2>
+            <h3 className="user-username">@{user.username}</h3>
           </div>
         </div>
         <div className="user-footer">

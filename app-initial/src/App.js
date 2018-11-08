@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Router } from '@reach/router'
 import { FiUser, FiEdit } from 'react-icons/fi'
-import NavDrawer, { NavTitle, NavSubtitle, NavLink } from 'components/NavDrawer'
+import { NavDrawer, NavTitle, NavSubtitle, NavLink } from 'components/Nav'
 import Main from 'components/Main'
 import UsersPage from 'components/UsersPage'
 import PostsPage from 'components/PostsPage'

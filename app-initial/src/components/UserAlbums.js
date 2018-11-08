@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { getUserAlbums } from 'api'
 import Spinner from 'components/Spinner'
-import './UserAlbums.css'
 
 class UserAlbums extends Component {
   state = {
@@ -21,13 +20,13 @@ class UserAlbums extends Component {
     const { isLoading, albums } = this.state
 
     return (
-      <div className="user-albums">
+      <div className="user-detail">
         {isLoading ? (
           <Spinner />
         ) : (
           <>
-            <h3 className="albums-label">Albums</h3>
-            <p className="albums-value">{albums.length}</p>
+            <h3 className="user-detail-label">Albums</h3>
+            <p className="user-detail-value">{albums.length}</p>
           </>
         )}
       </div>

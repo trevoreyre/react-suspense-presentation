@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { getUsers } from 'api'
-import PageTitle from 'components/PageTitle'
 import Spinner from 'components/Spinner'
 import Warning from 'components/Warning'
 import Grid from 'components/Grid'
 import User from 'components/User'
+
+import ErrorBoundary from 'components/ErrorBoundary'
 
 class UsersPage extends Component {
   state = {
@@ -31,21 +32,16 @@ class UsersPage extends Component {
   render() {
     const { isLoading, users, error } = this.state
 
-    return (
-      <>
-        <PageTitle>Users</PageTitle>
-        {isLoading ? (
-          <Spinner centered />
-        ) : error ? (
-          <Warning>{error}</Warning>
-        ) : (
-          <Grid>
-            {users.map(user => (
-              <User key={user.id} user={user} />
-            ))}
-          </Grid>
-        )}
-      </>
+    return isLoading ? (
+      <Spinner centered />
+    ) : error ? (
+      <Warning>{error}</Warning>
+    ) : (
+      <Grid>
+        {users.map(user => (
+          <User key={user.id} user={user} />
+        ))}
+      </Grid>
     )
   }
 }

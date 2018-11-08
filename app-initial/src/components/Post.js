@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import * as api from 'api'
 import Spinner from 'components/Spinner'
 import Warning from 'components/Warning'
-import './Post.css'
 
 class Post extends Component {
   state = {

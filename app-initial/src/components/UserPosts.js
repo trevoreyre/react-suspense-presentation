@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { getUserPosts } from 'api'
 import Spinner from 'components/Spinner'
-import './UserPosts.css'
 
 class UserPosts extends Component {
   state = {
@@ -21,13 +20,13 @@ class UserPosts extends Component {
     const { isLoading, posts } = this.state
 
     return (
-      <div className="user-posts">
+      <div className="user-detail">
         {isLoading ? (
           <Spinner />
         ) : (
           <>
-            <h3 className="posts-label">Posts</h3>
-            <p className="posts-value">{posts.length}</p>
+            <h3 className="user-detail-label">Posts</h3>
+            <p className="user-detail-value">{posts.length}</p>
           </>
         )}
       </div>
