@@ -21,7 +21,7 @@ export const getUsers = async () => {
   const { data: users } = await api.get('users')
   return users.map((user, index) => ({
     ...user,
-    avatar: userImages[user.id] + '15x15',
+    avatarPlaceholder: userImages[user.id] + '15x15',
     avatarHd: userImages[user.id] + '150x150',
   }))
 }
@@ -30,7 +30,7 @@ export const getUser = async userId => {
   const { data: user } = await api.get(`users/${userId}`)
   return {
     ...user,
-    avatar: userImages[user.id] + '15x15',
+    avatarPlaceholder: userImages[user.id] + '15x15',
     avatarHd: userImages[user.id] + '150x150',
   }
 }

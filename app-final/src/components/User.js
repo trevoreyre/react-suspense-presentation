@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, Suspense } from 'react'
 import UserPosts from 'components/UserPosts'
 import UserAlbums from 'components/UserAlbums'
+import Img from 'components/Img'
+import Spinner from 'components/Spinner'
 
 const UserBackground = () => {
   const random = Math.random() * 360
@@ -24,7 +26,17 @@ class User extends Component {
         <UserBackground />
         <div className="user-header">
           <div className="user-avatar">
-            <img src={user.avatarHd} alt="User avatar" className="avatar" />
+            <Suspense
+              fallback={
+                <img
+                  src={user.avatarPlaceholder}
+                  alt="User avatar"
+                  className="user-avatar-placeholder"
+                />
+              }
+            >
+              <Img src={user.avatarHd} alt="User avatar" className="avatar" />
+            </Suspense>
           </div>
           <div className="user-info">
             <h2 className="user-name">{user.name}</h2>
@@ -32,8 +44,10 @@ class User extends Component {
           </div>
         </div>
         <div className="user-footer">
-          <UserPosts id={user.id} />
-          <UserAlbums id={user.id} />
+          <Suspense fallback={<Spinner size="44px" />} maxDuration={500}>
+            <UserPosts id={user.id} />
+            <UserAlbums id={user.id} />
+          </Suspense>
         </div>
       </div>
     )

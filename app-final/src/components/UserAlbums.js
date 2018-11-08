@@ -1,34 +1,17 @@
 import React, { Component } from 'react'
+import { unstable_createResource as createResource } from 'react-cache'
 import { getUserAlbums } from 'api'
-import Spinner from 'components/Spinner'
+
+const albumsResource = createResource(id => getUserAlbums(id))
 
 class UserAlbums extends Component {
-  state = {
-    isLoading: true,
-    albums: [],
-  }
-
-  async componentDidMount() {
-    const albums = await getUserAlbums(this.props.id)
-    this.setState({
-      isLoading: false,
-      albums,
-    })
-  }
-
   render() {
-    const { isLoading, albums } = this.state
-
     return (
       <div className="user-detail">
-        {isLoading ? (
-          <Spinner />
-        ) : (
-          <>
-            <h3 className="user-detail-label">Albums</h3>
-            <p className="user-detail-value">{albums.length}</p>
-          </>
-        )}
+        <h3 className="user-detail-label">Albums</h3>
+        <p className="user-detail-value">
+          {albumsResource.read(this.props.id).length}
+        </p>
       </div>
     )
   }
