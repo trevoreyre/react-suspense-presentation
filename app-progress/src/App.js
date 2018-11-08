@@ -3,6 +3,7 @@ import { Router } from '@reach/router'
 import { FiUser, FiEdit } from 'react-icons/fi'
 import { NavDrawer, NavTitle, NavSubtitle, NavLink } from 'components/Nav'
 import Main from 'components/Main'
+import Preload from 'components/Preload'
 import UsersPage from 'components/UsersPage'
 import PostsPage from 'components/PostsPage'
 
@@ -28,6 +29,7 @@ class App extends Component {
             <PostsPage path="/posts" />
           </Router>
         </Main>
+        <Preload />
       </div>
     )
   }

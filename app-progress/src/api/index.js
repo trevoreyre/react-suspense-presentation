@@ -4,7 +4,7 @@ const api = axios.create({
   baseURL: 'https://jsonplaceholder.typicode.com',
 })
 
-const userImages = {
+export const userImages = {
   '1': 'https://source.unsplash.com/E9uJ65vwGmE/',
   '2': 'https://source.unsplash.com/Nm70URdtf3c/',
   '3': 'https://source.unsplash.com/vMV6r4VRhJ8/',
