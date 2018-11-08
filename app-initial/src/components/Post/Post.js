@@ -11,7 +11,7 @@ class Post extends Component {
     author: {},
     commentsIsLoading: true,
     commentsError: '',
-    comments: []
+    comments: [],
   }
 
   async componentDidMount() {
@@ -19,20 +19,20 @@ class Post extends Component {
     try {
       const [author, comments] = await Promise.all([
         api.getUser(post.userId),
-        api.getComments(post.id)
+        api.getComments(post.id),
       ])
       this.setState({
         authorIsLoading: false,
         author,
         commentsIsLoading: false,
-        comments
+        comments,
       })
     } catch (error) {
       this.setState({
         authorIsLoading: false,
         authorError: 'Unable to load author',
         commentsIsLoading: false,
-        commentsError: 'Unable to load comments'
+        commentsError: 'Unable to load comments',
       })
     }
   }
@@ -44,7 +44,7 @@ class Post extends Component {
       author,
       commentsIsLoading,
       commentsError,
-      comments
+      comments,
     } = this.state
     const { post, ...props } = this.props
 

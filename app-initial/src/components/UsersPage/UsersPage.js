@@ -10,7 +10,7 @@ class UsersPage extends Component {
   state = {
     isLoading: true,
     users: [],
-    error: ''
+    error: '',
   }
 
   async componentDidMount() {
@@ -18,12 +18,12 @@ class UsersPage extends Component {
       const users = await getUsers()
       this.setState({
         isLoading: false,
-        users
+        users,
       })
     } catch (error) {
       this.setState({
         isLoading: false,
-        error: 'Unable to load users'
+        error: 'Unable to load users',
       })
     }
   }

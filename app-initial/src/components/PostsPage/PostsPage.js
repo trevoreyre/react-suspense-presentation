@@ -9,7 +9,7 @@ class PostsPage extends Component {
   state = {
     isLoading: true,
     posts: [],
-    error: ''
+    error: '',
   }
 
   async componentDidMount() {
@@ -17,12 +17,12 @@ class PostsPage extends Component {
       const posts = await getPosts()
       this.setState({
         isLoading: false,
-        posts
+        posts,
       })
     } catch (error) {
       this.setState({
         isLoading: false,
-        error: 'Unable to load posts'
+        error: 'Unable to load posts',
       })
     }
   }

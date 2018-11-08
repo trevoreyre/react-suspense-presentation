@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import * as api from 'api'
-import UserDetail from 'components/UserDetail'
+import UserPosts from 'components/UserPosts'
+import UserAlbums from 'components/UserAlbums'
 import './User.css'
 
 const UserBackground = () => {
@@ -10,7 +10,7 @@ const UserBackground = () => {
       className="user-background"
       style={{
         background: `linear-gradient(to bottom right, hsl(${random}, 100%, 60%), hsl(${random +
-          40}, 100%, 60%))`
+          40}, 100%, 60%))`,
       }}
     />
   )
@@ -33,9 +33,8 @@ class User extends Component {
           </div>
         </div>
         <div className="user-footer">
-          <UserDetail fetchFn={api.getUserPosts} label="Posts" id={user.id} />
-          <UserDetail fetchFn={api.getUserAlbums} label="Albums" id={user.id} />
-          <UserDetail fetchFn={api.getUserTasks} label="Tasks" id={user.id} />
+          <UserPosts id={user.id} />
+          <UserAlbums id={user.id} />
         </div>
       </div>
     )

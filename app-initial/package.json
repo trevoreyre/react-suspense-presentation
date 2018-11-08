@@ -7,35 +7,22 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prettier": "prettier --single-quote --no-semi --write src/**/*.{js,json,css,scss,md}"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{js,json,css,scss,md}": [
-      "prettier --single-quote --no-semi --write",
-      "git add"
-    ]
+    "prettier": "prettier --write --no-semi --single-quote --trailing-comma es5 src/**/*.{js,json,css}"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "prettier",
+      "plugin:prettier/recommended",
       "prettier/flowtype",
       "prettier/react"
-    ],
-    "plugins": [
-      "prettier"
     ],
     "rules": {
       "prettier/prettier": [
         "warn",
         {
           "semi": false,
-          "singleQuote": true
+          "singleQuote": true,
+          "trailingComma": "es5"
         }
       ]
     }
@@ -58,6 +45,6 @@
   "devDependencies": {
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-prettier": "^3.0.0",
-    "prettier": "^1.14.3"
+    "prettier": "^1.15.1"
   }
 }
