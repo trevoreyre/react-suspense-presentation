@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com'
+  baseURL: 'https://jsonplaceholder.typicode.com',
 })
 
 const userImages = {
@@ -14,7 +14,7 @@ const userImages = {
   '7': 'https://source.unsplash.com/iFgRcqHznqg/',
   '8': 'https://source.unsplash.com/d2MSDujJl2g/',
   '9': 'https://source.unsplash.com/tNCH0sKSZbA/',
-  '10': 'https://source.unsplash.com/TMgQMXoglsM/'
+  '10': 'https://source.unsplash.com/TMgQMXoglsM/',
 }
 
 export const getUsers = async () => {
@@ -22,7 +22,7 @@ export const getUsers = async () => {
   return users.map((user, index) => ({
     ...user,
     avatar: userImages[user.id] + '15x15',
-    avatarHd: userImages[user.id] + '150x150'
+    avatarHd: userImages[user.id] + '150x150',
   }))
 }
 
@@ -31,7 +31,7 @@ export const getUser = async userId => {
   return {
     ...user,
     avatar: userImages[user.id] + '15x15',
-    avatarHd: userImages[user.id] + '150x150'
+    avatarHd: userImages[user.id] + '150x150',
   }
 }
 
@@ -54,7 +54,7 @@ export const getPosts = async () => {
   const { data: posts } = await api.get('posts')
   return posts.map((post, index) => ({
     ...post,
-    body: post.body.charAt(0).toUpperCase() + post.body.slice(1) + '.'
+    body: post.body.charAt(0).toUpperCase() + post.body.slice(1) + '.',
   }))
 }
 
