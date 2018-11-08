@@ -3,6 +3,7 @@ import {
   Deck,
   Heading,
   Slide,
+  Text,
 } from 'spectacle';
 import createTheme from 'spectacle/lib/themes/default';
 import CodeSlide from 'spectacle-code-slide'
@@ -190,19 +191,37 @@ export default class Presentation extends React.Component {
       >
 
         <Slide bgColor="secondary">
-          <Heading size={1} fit caps lineHeight={1} textColor="primary">
+          <Heading size={1} margin="40px" textColor="primary">
             React Suspense
           </Heading>
-        </Slide>
-
-        <Slide bgColor="secondary">
-          <Heading size={1} fit caps lineHeight={1} textColor="primary">
-            whoami
+          <Heading size={4} textColor="primary">
+            (BETA)
           </Heading>
         </Slide>
 
         <Slide bgColor="secondary">
-          <Heading size={1} fit caps lineHeight={1} textColor="primary">
+          <Heading size={3} margin="40px" textColor="primary">
+            whoami
+          </Heading>
+          <Text textColor="primary">
+            Trevor Eyre
+          </Text>
+          <Text textColor="primary">
+            "Full stack" engineer at Healthwise
+          </Text>
+        </Slide>
+
+        <Slide bgColor="secondary">
+          <Heading size={4} margin="40px" textColor="primary">
+            Suspense!
+          </Heading>
+          <Text textColor="primary">Code splitting</Text>
+          <Text textColor="primary">Loading assets</Text>
+          <Text textColor="primary">Fetching data </Text>
+        </Slide>
+
+        <Slide bgColor="secondary">
+          <Heading size={3} lineHeight={1} textColor="primary">
             Code splitting
           </Heading>
         </Slide>
@@ -218,12 +237,12 @@ export default class Presentation extends React.Component {
             },
             { loc: [2, 6] },
             { loc: [7, 12] },
-            { loc: [13, 22]}
+            { loc: [13, 22] }
           ]}
         />
 
         <Slide bgColor="secondary">
-          <Heading size={1} fit caps lineHeight={1} textColor="primary">
+          <Heading size={3} lineHeight={1} textColor="primary">
             react-loadable
           </Heading>
         </Slide>
@@ -243,7 +262,24 @@ export default class Presentation extends React.Component {
         />
 
         <Slide bgColor="secondary">
-          <Heading size={1} fit caps lineHeight={1} textColor="primary">
+          <Heading size={3} lineHeight={1} textColor="primary">
+            Concurrent React
+          </Heading>
+        </Slide>
+
+        <CodeSlide
+          bgColor="secondary"
+          lang="jsx"
+          code={enablingConcurrentReactCode}
+          ranges={[
+            { loc: [0, 0] },
+            { loc: [0, 5]},
+            { loc: [6, 10]},
+          ]}
+        />
+
+        <Slide bgColor="secondary">
+          <Heading size={3} lineHeight={1} textColor="primary">
             Loading assets
           </Heading>
         </Slide>
@@ -273,7 +309,7 @@ export default class Presentation extends React.Component {
         />
 
         <Slide bgColor="secondary">
-          <Heading size={1} fit caps lineHeight={1} textColor="primary">
+          <Heading size={3} lineHeight={1} textColor="primary">
             Fetching data
           </Heading>
         </Slide>
@@ -304,19 +340,11 @@ export default class Presentation extends React.Component {
           ]}
         />
 
-        <CodeSlide
-          bgColor="secondary"
-          lang="jsx"
-          code={enablingConcurrentReactCode}
-          ranges={[
-            {
-              loc: [0, 0],
-              title: 'Enabling concurrent React',
-            },
-            { loc: [0, 5]},
-            { loc: [6, 10]},
-          ]}
-        />
+        <Slide bgColor="secondary">
+          <Heading size={1} textColor="primary">
+            THANKS!
+          </Heading>
+        </Slide>
 
       </Deck>
     );
