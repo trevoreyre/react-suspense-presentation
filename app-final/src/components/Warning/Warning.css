@@ -1,0 +1,12 @@
+.warning {
+  display: flex;
+  align-items: center;
+}
+
+.warning > * {
+  margin-right: 16px;
+}
+
+.warning > span {
+  font-size: 16px;
+}
