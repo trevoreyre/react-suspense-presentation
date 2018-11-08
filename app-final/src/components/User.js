@@ -34,6 +34,7 @@ class User extends Component {
                   className="user-avatar-placeholder"
                 />
               }
+              maxDuration={100}
             >
               <Img src={user.avatarHd} alt="User avatar" className="avatar" />
             </Suspense>

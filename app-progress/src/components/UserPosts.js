@@ -22,7 +22,7 @@ class UserPosts extends Component {
     return (
       <div className="user-detail">
         {isLoading ? (
-          <Spinner />
+          <Spinner size="44px" />
         ) : (
           <>
             <h3 className="user-detail-label">Posts</h3>
