@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Deck,
   Heading,
+  Link,
   Slide,
   Text,
 } from 'spectacle';
@@ -211,6 +212,19 @@ export default class Presentation extends React.Component {
           </Text>
         </Slide>
 
+        <Slide bgColor="secondary" textColor="primary">
+          <Text margin="40px" textColor="primary">
+            <Link href="https://react-suspense.trevoreyre.com" textColor="primary">
+              react-suspense.trevoreyre.com
+            </Link>
+          </Text>
+          <Text margin="40px" textColor="primary">
+            <Link href="https://github.com/trevoreyre/react-suspense-presentation" textColor="primary">
+              github.com/trevoreyre/react-suspense-presentation
+            </Link>
+          </Text>
+        </Slide>
+
         <Slide bgColor="secondary">
           <Heading size={4} margin="40px" textColor="primary">
             Suspense!
@@ -218,6 +232,17 @@ export default class Presentation extends React.Component {
           <Text textColor="primary">Code splitting</Text>
           <Text textColor="primary">Loading assets</Text>
           <Text textColor="primary">Fetching data </Text>
+        </Slide>
+
+        <Slide bgColor="secondary" textColor="primary">
+          <Heading size={3} margin="40px" textColor="primary">
+            DEMO
+          </Heading>
+          <Text textColor="primary">
+            <Link href="https://react-suspense-demo-initial.trevoreyre.com" textColor="primary">
+              react-suspense-demo-initial.trevoreyre.com
+            </Link>
+          </Text>
         </Slide>
 
         <Slide bgColor="secondary">
@@ -340,10 +365,28 @@ export default class Presentation extends React.Component {
           ]}
         />
 
-        <Slide bgColor="secondary">
-          <Heading size={1} textColor="primary">
+        <Slide bgColor="secondary" textColor="primary">
+          <Heading size={4} margin="40px" textColor="primary">
+            Cool, so what do I do now?
+          </Heading>
+          <Text margin="40px" textColor="primary">Code splitting with React.lazy()</Text>
+          <Text textColor="primary">Use {'<React.StrictMode>'} to get ready for concurrent React</Text>
+        </Slide>
+
+        <Slide bgColor="secondary" textColor="primary">
+          <Heading size={1} margin="40px" textColor="primary">
             THANKS!
           </Heading>
+          <Text margin="40px" textColor="primary">
+            <Link href="https://react-suspense.trevoreyre.com" textColor="primary">
+              react-suspense.trevoreyre.com
+            </Link>
+          </Text>
+          <Text margin="40px" textColor="primary">
+            <Link href="https://github.com/trevoreyre/react-suspense-presentation" textColor="primary">
+              github.com/trevoreyre/react-suspense-presentation
+            </Link>
+          </Text>
         </Slide>
 
       </Deck>
