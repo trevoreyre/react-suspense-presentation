@@ -1,31 +1,17 @@
-import React, { Component } from 'react'
+import React, { Suspense } from 'react'
+import { unstable_createResource as createResource } from 'react-cache'
 import { getPosts } from 'api'
 import Spinner from 'components/Spinner'
 import Post from 'components/Post'
 
-class PostsPage extends Component {
-  state = {
-    isLoading: true,
-    posts: [],
-  }
+const postsResource = createResource(getPosts)
 
-  async componentDidMount() {
-    const posts = await getPosts()
-    this.setState({
-      isLoading: false,
-      posts,
-    })
-  }
-
-  render() {
-    const { isLoading, posts } = this.state
-
-    return isLoading ? (
-      <Spinner centered />
-    ) : (
-      posts.map(post => <Post key={post.id} post={post} />)
-    )
-  }
-}
+const PostsPage = () => (
+  <Suspense fallback={<Spinner centered />} maxDuration={500}>
+    {postsResource.read().map(post => (
+      <Post key={post.id} post={post} />
+    ))}
+  </Suspense>
+)
 
 export default PostsPage

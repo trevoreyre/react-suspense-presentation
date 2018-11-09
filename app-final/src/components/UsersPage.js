@@ -1,4 +1,4 @@
-import React, { Component, Suspense } from 'react'
+import React, { Suspense } from 'react'
 import { unstable_createResource as createResource } from 'react-cache'
 import { getUsers } from 'api'
 import Spinner from 'components/Spinner'
@@ -7,18 +7,14 @@ import User from 'components/User'
 
 const usersResource = createResource(getUsers)
 
-class UsersPage extends Component {
-  render() {
-    return (
-      <Suspense fallback={<Spinner centered />}>
-        <Grid>
-          {usersResource.read().map(user => (
-            <User key={user.id} user={user} />
-          ))}
-        </Grid>
-      </Suspense>
-    )
-  }
-}
+const UsersPage = () => (
+  <Suspense fallback={<Spinner centered />} maxDuration={500}>
+    <Grid>
+      {usersResource.read().map(user => (
+        <User key={user.id} user={user} />
+      ))}
+    </Grid>
+  </Suspense>
+)
 
 export default UsersPage
