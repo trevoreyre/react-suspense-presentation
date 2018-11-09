@@ -213,13 +213,19 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide bgColor="secondary" textColor="primary">
-          <Text margin="40px" textColor="primary">
-            <Link href="https://react-suspense.trevoreyre.com" textColor="primary">
-              react-suspense.trevoreyre.com
+          <Text margin="16px" textColor="primary" textColor="primary">
+            View the demo app
+          </Text>
+          <Text margin="40px">
+            <Link href="https://react-suspense-demo.trevoreyre.com" textColor="#4a18e2">
+              react-suspense-demo.trevoreyre.com
             </Link>
           </Text>
-          <Text margin="40px" textColor="primary">
-            <Link href="https://github.com/trevoreyre/react-suspense-presentation" textColor="primary">
+          <Text margin="16px" textColor="primary">
+            View the code
+          </Text>
+          <Text>
+            <Link href="https://github.com/trevoreyre/react-suspense-presentation" textColor="#4a18e2">
               github.com/trevoreyre/react-suspense-presentation
             </Link>
           </Text>
@@ -238,8 +244,8 @@ export default class Presentation extends React.Component {
           <Heading size={3} margin="40px" textColor="primary">
             DEMO
           </Heading>
-          <Text textColor="primary">
-            <Link href="https://react-suspense-demo-initial.trevoreyre.com" textColor="primary">
+          <Text>
+            <Link href="https://react-suspense-demo-initial.trevoreyre.com" textColor="#4a18e2">
               react-suspense-demo-initial.trevoreyre.com
             </Link>
           </Text>
@@ -377,13 +383,19 @@ export default class Presentation extends React.Component {
           <Heading size={1} margin="40px" textColor="primary">
             THANKS!
           </Heading>
-          <Text margin="40px" textColor="primary">
-            <Link href="https://react-suspense.trevoreyre.com" textColor="primary">
-              react-suspense.trevoreyre.com
+          <Text margin="16px" textColor="primary">
+            View the demo app
+          </Text>
+          <Text margin="40px">
+            <Link href="https://react-suspense-demo.trevoreyre.com" textColor="#4a18e2">
+              react-suspense-demo.trevoreyre.com
             </Link>
           </Text>
-          <Text margin="40px" textColor="primary">
-            <Link href="https://github.com/trevoreyre/react-suspense-presentation" textColor="primary">
+          <Text margin="16px" textColor="primary">
+            View the code
+          </Text>
+          <Text>
+            <Link href="https://github.com/trevoreyre/react-suspense-presentation" textColor="#4a18e2">
               github.com/trevoreyre/react-suspense-presentation
             </Link>
           </Text>
